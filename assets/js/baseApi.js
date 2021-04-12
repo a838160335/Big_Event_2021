@@ -9,9 +9,7 @@ $.ajaxPrefilter(function(options) {
         };
 
         options.complete = function (response) {
-        
             console.log(response);
-    
             if(
                 response.responseJSON.status ===  1 &&
                 response.responseJSON.message === '身份认证失败!'
@@ -19,7 +17,6 @@ $.ajaxPrefilter(function(options) {
                 // 说明没有权限
                 location.href = '/login.html';
             }
-        }
-
+        };
     }
-})
+});
