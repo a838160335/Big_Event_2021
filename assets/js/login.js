@@ -42,7 +42,7 @@ form.verify({
   },
 });
 
-$("#form_reg").on("sumbit", function (e) {
+$("#form_reg").submit( function (e) {
   // 1.阻止默认请求
   e.preventDefault();
   // 2.发起ajax的post请求
@@ -54,7 +54,7 @@ $("#form_reg").on("sumbit", function (e) {
   $.ajax({
     type:'POST',
     url: '/api/reguser',
-    data:{data},
+    data:data,
     success(res){
       if (res.status !== 0) {
         console.log(res)
@@ -74,7 +74,7 @@ $('#form_login').submit(function(e) {
   e.preventDefault();
 
   $.ajax({
-    url:'http://api-breakingnews-web.itheima.net/api/login',
+    url:'/api/login',
     method:'POST',
     data:$(this).serialize(),
     success(res){
@@ -88,12 +88,6 @@ $('#form_login').submit(function(e) {
       localStorage.setItem('token',res.token)
       //跳转到主页
       location.href= '/index.html';
-
-
-
     }
-  
-
   })
-
 })
