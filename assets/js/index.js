@@ -13,6 +13,7 @@ $(function () {
 
       location.href = '/login.html';
 
+    //   关闭 confirm询问框
       layer.close(index);
     });
   });
@@ -26,7 +27,7 @@ function getUserInfo() {
       Authorization: localStorage.token,
     },
     success(res) {
-      console.log(res);
+      // console.log(res);
       if (res.status !== 0) {
         return layui.layer.msg(res.message);
       }
